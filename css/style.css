@@ -1,0 +1,102 @@
+/* @import url('https://fonts.googleapis.com/css2?family=Lobster&display=swap'); */
+
+ :root {
+    --primary: rgba(131, 81, 81, 0.7);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    height: 100vh;
+    background-image: url('https://p4.wallpaperbetter.com/wallpaper/390/734/571/firewatch-minimalism-games-hd-wallpaper-preview.jpg');
+   background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+form {
+    background: rgba(73, 25, 25, 0.6);
+
+    max-width: 600px;
+
+    margin: 32px auto;
+    padding: 32px 64px;
+
+    display: flex;
+    flex-direction: column;
+
+    border-radius: 10px;
+}
+
+form h2 {
+    margin-bottom: 32px;
+
+    font-family: 'Lobster', cursive;
+    text-align: center;
+    font-size: 2em;
+
+    color: var(--primary);
+}
+
+
+div.input {
+    margin-bottom: 24px;
+    position: relative;
+}
+
+input,
+button {
+    -moz-appearance: none;
+    -webkit-appearance: none;
+    appearance: none;
+
+    width: 100%;
+
+    padding: 16px 0;
+
+    border: none;
+    border-bottom: 1px solid var(--primary);
+
+    background-color: transparent;
+
+    outline: none;
+
+    font-size: 1em;
+    color: var(--primary)
+}
+
+button {
+    margin-top: 16px;
+    background-color: var(--primary);
+    color: rgb(65, 65, 65);
+    cursor: pointer;
+    transition: .4s;
+    margin-bottom: px;
+}
+
+button:hover {
+    background-color: #864d4d;
+    transition: .4s;
+}
+
+input ~ label {
+    position: absolute;
+    top: 16px;
+    left: 0;
+
+    color: var(--primary);
+
+    transition: .4s;
+}
+
+input:focus ~ label,
+input:valid ~ label {
+    transform: translateY(-24px);
+    font-size: 0.8em;
+    letter-spacing: 0.1em;
+} 
