@@ -7,14 +7,15 @@ require_once "models/actores_models.php";
 $pagina = "Actores";
 
 
-$resultado = obtenerActores($conexion);
+$actores = obtenerActores($conexion);
 
-
+$nombreActor = $_POST['nombre'] ?? "";
+$apellidoActor = $_POST['apellido'] ?? "";
 
 
 if (isset($_POST['guardar'])){
-    $nombre = $_POST['nombre'] ?? "";
-    $apellido = $_POST['apellido'] ?? "";
+    $nombreActor = $_POST['nombre'] ?? "";
+    $apellidoActor = $_POST['apellido'] ?? "";
 
     $datos = compact('nombre', 'apellido');
     

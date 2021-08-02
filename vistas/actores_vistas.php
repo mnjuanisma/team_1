@@ -15,29 +15,30 @@
 
 <div class="container">
     <div class="group-form">
-    <form action="" method="post">
+        <form action="" method="post">
 
-    <input type="hidden" name="idActor" value="<?= $idActor ?>">
+            <input type="hidden" name="idActor" value="<?= $idActor ?>">
 
-    <label for="inputNombreActor">Nombre del Actor: </label>
-    <input  type="text" name="inputNombreActor" id="inputNombreActor"
-            class="form-control" placeholder="Escribe el nombre del actor" value="<?= $nombreActor ?>">
+            <label for="inputNombreActor">Nombre del Actor: </label>
+            <input type="text" name="inputNombreActor" id="inputNombreActor" class="form-control"
+                placeholder="Escribe el nombre del actor" value="<?= $nombreActor ?>">
 
-    <label class="mt-3" for="inputApellidoActor">Apellido del Actor: </label>
-    <input type="text" name="inputApellidoActor" id="inputApellidoActor"
-            class="form-control" placeholder="Escribe el apellido del actor" value="<?= $apellidoActor ?>">
-    <div class="mt-3">
-        <button type="submit" name="btnGuardarDatos" class="btn btn-secondary"><i class="fa fa-floppy-o" aria-hidden="true"></i> Guardar Datos</button>
-    </div>
+            <label class="mt-3" for="inputApellidoActor">Apellido del Actor: </label>
+            <input type="text" name="inputApellidoActor" id="inputApellidoActor" class="form-control"
+                placeholder="Escribe el apellido del actor" value="<?= $apellidoActor ?>">
+            <div class="mt-3">
+                <button type="submit" name="btnGuardarDatos" class="btn btn-secondary"><i class="fa fa-floppy-o"
+                        aria-hidden="true"></i> Guardar Datos</button>
+            </div>
 
-    </form>
-    <form action="">
-    <div class="mt-3">
-    <label class="" for="inputApellidoActor">Filtrar Nombre del Actor: </label>
-    <input name="nombre" type="text" class="form-control" placeholder="Escribe Aqui">
-    <button name="buscar" class="btn btn-secondary mt-3">Buscar</button>
-    </div>
-    </form>
+        </form>
+        <form action="">
+            <div class="mt-3">
+                <label class="" for="inputApellidoActor">Filtrar Nombre del Actor: </label>
+                <input name="nombre" type="text" class="form-control" placeholder="Escribe Aqui">
+                <button name="buscar" class="btn btn-secondary mt-3">Buscar</button>
+            </div>
+        </form>
     </div>
 </div>
 
@@ -51,18 +52,18 @@
 
 <!-- Tabla -->
 <div class="container">
-<table class="table table-dark table-striped">
-  <thead>
-    <tr>
-      <th scope="col">Actor_id</th>
-      <th scope="col">First_name</th>
-      <th scope="col">Last_name</th>
-      <th scope="col">Last_update</th>
-      <th scope="col">Acciones</th>
-    </tr>
-  </thead>
-  <tbody>
-      <?php
+    <table class="table table-dark table-striped">
+        <thead>
+            <tr>
+                <th scope="col">Actor_id</th>
+                <th scope="col">First_name</th>
+                <th scope="col">Last_name</th>
+                <th scope="col">Last_update</th>
+                <th scope="col">Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            <?php
         while($actor = mysqli_fetch_assoc($actores)){
           echo "<tr>
                     <th scope='row'>{$actor['actor_id']}</th>
@@ -76,8 +77,8 @@
                 </tr>";
         }
       ?>
-  </tbody>
-</table>
+        </tbody>
+    </table>
 </div>
 
 <?php require_once 'partes/foot.php';?>
