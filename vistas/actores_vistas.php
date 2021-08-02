@@ -32,6 +32,11 @@
             </div>
 
         </form>
+
+        <div>
+            <div><?php echo $_SESSION['mensaje'] ?? ""; ?> </div>
+        </div>
+
         <form action="">
             <div class="mt-3">
                 <label class="" for="inputApellidoActor">Filtrar Nombre del Actor: </label>
@@ -42,9 +47,6 @@
     </div>
 </div>
 
-<div>
-    <div><?php echo $_SESSION['mensaje'] ?? ""; ?> </div>
-</div>
 
 <hr>
 

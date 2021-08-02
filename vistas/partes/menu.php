@@ -8,13 +8,13 @@
                 <a class="nav-link active" aria-current="page" href="actores.php">Actores</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="categoria.php">Categoria</a>
+                <a class="nav-link" href="categorias.php">Categoria</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="lenguaje.php">Lenguaje</a>
+                <a class="nav-link" href="idiomas.php">Lenguaje</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="pais.php">Pais</a>
+                <a class="nav-link" href="paises.php">Pais</a>
             </li>
         </ul>
 

@@ -9,21 +9,22 @@ $pagina = "Actores";
 
 $actores = obtenerActores($conexion);
 
-$nombreActor = $_POST['nombre'] ?? "";
-$apellidoActor = $_POST['apellido'] ?? "";
+$nombreActor = $_POST['nombreActor'] ?? "";
+$apellidoActor = $_POST['apellidoActor'] ?? "";
 
 
-if (isset($_POST['guardar'])){
-    $nombreActor = $_POST['nombre'] ?? "";
-    $apellidoActor = $_POST['apellido'] ?? "";
+if (isset($_POST['btnGuardarDatos'])){
+    $nombreActor = $_POST['inputNombreActor'] ?? "";
+    $apellidoActor = $_POST['inputApellidoActor'] ?? "";
 
-    $datos = compact('nombre', 'apellido');
-    
+    $datos = compact('nombreActor', 'apellidoActor');
 
     $insertado = insertarActor($conexion, $datos);
 
     if ($insertado){
         $_SESSION['mensaje'] = 'Datos insertados correctamente';
+    } else {
+        $_SESSION['mensaje'] = 'Datos no insertados';
     }
 
     # prevenir reenvio del formulario
