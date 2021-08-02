@@ -1,0 +1,27 @@
+/* CSS para el menú que está seleccionado actualmente */
+/*---------------------------------------------*/
+#menu a.nav-link{
+    border-bottom: transparent solid 0px;
+    transition: all ease .3s;
+}
+#menu a.nav-link:hover{
+    font-size: 20px;
+    color: orange;
+    border-bottom: solid orange 5px;
+}
+#menu a.select{
+    color: orange;
+}
+/*---------------------------------------------*/
+
+
+
+/* Color blanco para los título */
+/*---------------------------------------------*/
+.blanco{
+    color: white;
+}
+.blanco:hover{
+    color: white;
+}
+/*--------------------------------------------*/

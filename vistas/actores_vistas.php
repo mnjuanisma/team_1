@@ -13,36 +13,32 @@
 <!-- formulario -->
 <hr>
 
-<form action="" method="post" class="container">
-    <div>
-        <label for="">Nombre</label>
-        <input type="text" name="nombre">
-    </div>
-
-    <br>
-
-    <div>
-        <label for="">Apellido</label>
-        <input type="text" name="apellido">
-    </div>
-
-    <br>
-
-    <div>
-        <button name="guardar">Guardar</button>
-    </div>
-</form>
-
-<hr>
-
 <div class="container">
-    <form action="">
-        <div class="form-group">
-            <input name="nombre" type="text" class="form-control" placeholder="Escribe para buscar">
-            <button name="buscar" class="btn btn-primary">Buscar</button>
-        </div>
+    <div class="group-form">
+    <form action="" method="post">
+
+    <input type="hidden" name="idActor" value="<?= $idActor ?>">
+
+    <label for="inputNombreActor">Nombre del Actor: </label>
+    <input  type="text" name="inputNombreActor" id="inputNombreActor"
+            class="form-control" placeholder="Escribe el nombre del actor" value="<?= $nombreActor ?>">
+
+    <label class="mt-3" for="inputApellidoActor">Apellido del Actor: </label>
+    <input type="text" name="inputApellidoActor" id="inputApellidoActor"
+            class="form-control" placeholder="Escribe el apellido del actor" value="<?= $apellidoActor ?>">
+    <div class="mt-3">
+        <button type="submit" name="btnGuardarDatos" class="btn btn-secondary"><i class="fa fa-floppy-o" aria-hidden="true"></i> Guardar Datos</button>
+    </div>
+
     </form>
-    <br>
+    <form action="">
+    <div class="mt-3">
+    <label class="" for="inputApellidoActor">Filtrar Nombre del Actor: </label>
+    <input name="nombre" type="text" class="form-control" placeholder="Escribe Aqui">
+    <button name="buscar" class="btn btn-secondary mt-3">Buscar</button>
+    </div>
+    </form>
+    </div>
 </div>
 
 <div>
@@ -55,33 +51,33 @@
 
 <!-- Tabla -->
 <div class="container">
-
-    <table class="table table-success table-striped">
-        <thead>
-            <tr>
-                <th scope="col">id</th>
-                <th scope="col">nombre actor</th>
-                <th scope="col">apellido actor</th>
-                <th scope="col">fecha modificado</th>
-            </tr>
-        </thead>
-
-        <body>
-            <?php
-    while($datos = mysqli_fetch_assoc($resultado)) {
-    
-   echo "<tr>
-      <th scope='row'>{$datos['actor_id']}</th>
-      <td>{$datos['first_name']}</td>
-      <td>{$datos['last_name']}</td>
-      <td>{$datos['last_update']}</td>
-    </tr>";
-}
-  ?>
-
-        </body>
-    </table>
-
+<table class="table table-dark table-striped">
+  <thead>
+    <tr>
+      <th scope="col">Actor_id</th>
+      <th scope="col">First_name</th>
+      <th scope="col">Last_name</th>
+      <th scope="col">Last_update</th>
+      <th scope="col">Acciones</th>
+    </tr>
+  </thead>
+  <tbody>
+      <?php
+        while($actor = mysqli_fetch_assoc($actores)){
+          echo "<tr>
+                    <th scope='row'>{$actor['actor_id']}</th>
+                    <td>{$actor['first_name']}</td>
+                    <td>{$actor['last_name']}</td>
+                    <td>{$actor['last_update']}</td>
+                    <td>
+                    <button class='btn btn-outline-danger btn-sm' title='Eliminar actor' name='eliminar' value='{$actor['actor_id']}'><i class=\"fa fa-trash\" aria-hidden=\"true\"></i></button>
+                    <button class='btn btn-outline-info btn-sm' title='Editar actor' name='editar' value='{$actor['actor_id']}'><i class=\"fa fa-pencil\" aria-hidden=\"true\"></i></button>
+                    </td>
+                </tr>";
+        }
+      ?>
+  </tbody>
+</table>
 </div>
 
 <?php require_once 'partes/foot.php';?>
