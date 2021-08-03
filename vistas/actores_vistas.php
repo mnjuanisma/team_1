@@ -27,7 +27,7 @@
             <input type="text" name="inputApellidoActor" id="inputApellidoActor" class="form-control"
                 placeholder="Escribe el apellido del actor" value="<?= $apellidoActor ?>">
             <div class="mt-3">
-                <button type="submit" name="btnGuardarDatos" class="btn btn-secondary"><i class="fa fa-floppy-o"
+                <button type="submit" name="btnGuardarDatos" class="btn btn-dark"><i class="fa fa-floppy-o"
                         aria-hidden="true"></i> Guardar Datos</button>
             </div>
 
@@ -41,7 +41,7 @@
             <div class="mt-3">
                 <label class="" for="inputApellidoActor">Filtrar Nombre del Actor: </label>
                 <input name="nombre" type="text" class="form-control" placeholder="Escribe Aqui">
-                <button name="buscar" class="btn btn-secondary mt-3">Buscar</button>
+                <button name="buscar" class="btn btn-dark mt-3"><i class="fa fa-search"></i> Buscar</button>
             </div>
         </form>
     </div>
