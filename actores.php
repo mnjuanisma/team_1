@@ -36,7 +36,7 @@ if (isset($_GET['buscar'])) {
     
     $nombre = $_GET['nombre'] ?? "";
 
-        $resultado= obtenerActoresPorNombre($conexion, $nombre);
+        $actores= obtenerActoresPorNombre($conexion, $nombre);
 }
 
 # incluir la vista

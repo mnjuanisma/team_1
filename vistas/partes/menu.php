@@ -4,22 +4,37 @@
 
 
         <ul class="nav nav-pills nav-fill">
-            <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="actores.php">Actores</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="categorias.php">Categoria</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="idiomas.php">Lenguaje</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="paises.php">Pais</a>
-            </li>
+            <?php
+
+        $enlaces = [
+            'actores.php' => 'Actores',
+            'categorias.php' => 'Categorias',
+            'idiomas.php' => 'Idiomas',
+            'paises.php' => 'Paises'
+        ];
+
+            $paginaActual = $_SERVER['REQUEST_URI'];
+
+            foreach($enlaces as $ruta => $enlace) {
+                $activo = "";
+
+            if ( strpos($paginaActual, $ruta)){
+                $activo = "active";
+            }
+
+            echo 
+            "<li class='nav-item'>
+                <a class='nav-link $activo' href='{$ruta}'>$enlace</a>
+            </li>";
+
+}
+
+?>
         </ul>
 
     </div>
 </div>
+
 <nav class="navbar navbar-dark bg-dark">
     <div class="container-fluid">
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse"

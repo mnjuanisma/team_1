@@ -2,7 +2,7 @@
 
 <?php require_once 'partes/head.php'; ?>
 
-<?php  require_once 'partes/menu.php'; ?>
+<?php require_once 'partes/menu.php'; ?>
 
 <div class="bg-light">
     <div class="container">
@@ -39,8 +39,10 @@
 
         <form action="">
             <div class="mt-3">
-                <label class="" for="inputApellidoActor">Filtrar Nombre del Actor: </label>
+                <label class="" for="">Filtrar Nombre del Actor: </label>
+                
                 <input name="nombre" type="text" class="form-control" placeholder="Escribe Aqui">
+
                 <button name="buscar" class="btn btn-dark mt-3"><i class="fa fa-search"></i> Buscar</button>
             </div>
         </form>
@@ -65,7 +67,9 @@
             </tr>
         </thead>
         <tbody>
-            <?php
+
+
+<?php
         while($actor = mysqli_fetch_assoc($actores)){
           echo "<tr>
                     <th scope='row'>{$actor['actor_id']}</th>

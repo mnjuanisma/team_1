@@ -14,59 +14,69 @@
 
 <hr>
 
-<form action="" method="post" class="container">
-    <div>
-        <label for="">Categoria</label>
-        <input type="text" name="categoria">
-    </div>
-
-    <br>
-
-    <div>
-        <button name="guardar">Guardar</button>
-    </div>
-</form>
-
-<hr>
-
 <div class="container">
-    <form action="">
-        <div class="form-group">
-            <input name="nombre" type="text" class="form-control" placeholder="Escribe para buscar">
-            <button name="buscar" class="btn btn-primary">Buscar</button>
+    <div class="group-form">
+        <form action="" method="post">
+
+            <input type="hidden" name="idCategoria" value="<?= $idCategoria ?>">
+
+            <label for="inputNombreCategoria">Nombre de la Categoria: </label>
+            <input type="text" name="inputNombreCategoria" id="inputNombreCategoria" class="form-control"
+                placeholder="Escribe el nombre de la categoria" value="<?= $nombreCategoria ?>">
+
+                <button type="submit" name="btnGuardarDatos" class="btn btn-dark"><i class="fa fa-floppy-o"
+                        aria-hidden="true"></i> Guardar Datos</button>
+            </div>
+
+        </form>
+
+        <div>
+            <div><?php echo $_SESSION['mensaje'] ?? ""; ?> </div>
         </div>
-    </form>
-    <br>
+
+        <form action="">
+            <div class="mt-3">
+                <label class="" for="">Filtrar Nombre de la Categoria: </label>
+                
+                <input name="nombre" type="text" class="form-control" placeholder="Escribe Aqui">
+
+                <button name="buscar" class="btn btn-dark mt-3"><i class="fa fa-search"></i> Buscar</button>
+            </div>
+        </form>
+    </div>
 </div>
 
-<div>
-    <div><?php echo $_SESSION['mensaje'] ?? ""; ?> </div>
-</div>
 
 <hr>
+
 
 <!-- Tabla -->
 
 <div class="container">
 
-    <table class="table table-success table-striped">
+    <table class="table table-dark table-striped">
         <thead>
             <tr>
                 <th scope="col">id</th>
                 <th scope="col">nombre</th>
                 <th scope="col">fecha modificado</th>
+                <th scope="col">Acciones</th>
             </tr>
         </thead>
 
         <body>
 
             <?php
-    while($datos = mysqli_fetch_assoc($resultado)) {
+    while($datos = mysqli_fetch_assoc($categorias)) {
     
    echo "<tr>
       <th scope='row'>{$datos['category_id']}</th>
       <td>{$datos['name']}</td>
       <td>{$datos['last_update']}</td>
+      <td>
+        <button class='btn btn-outline-danger btn-sm' title='Eliminar categoria' name='eliminar' value='{$datos['category_id']}'><i class=\"fa fa-trash\" aria-hidden=\"true\"></i></button>
+        <button class='btn btn-outline-info btn-sm' title='Editar categoria' name='editar' value='{$datos['category_id']}'><i class=\"fa fa-pencil\" aria-hidden=\"true\"></i></button>
+    </td>
     </tr>";
 }
     ?>

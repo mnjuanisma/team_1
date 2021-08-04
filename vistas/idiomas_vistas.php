@@ -14,57 +14,67 @@
 
 <hr>
 
-<form action="" method="post" class="container">
-    <div>
-        <label for="">Idioma</label>
-        <input type="text" name="idioma">
-    </div>
-
-    <br>
-
-    <div>
-        <button name="guardar">Guardar</button>
-    </div>
-</form>
-
-<hr>
-
 <div class="container">
-    <form action="">
-        <div class="form-group">
-            <input name="nombre" type="text" class="form-control" placeholder="Escribe para buscar">
-            <button name="buscar" class="btn btn-primary">Buscar</button>
+    <div class="group-form">
+        <form action="" method="post">
+
+            <input type="hidden" name="idIdioma" value="<?= $idIdioma ?>">
+
+            <label for="inputNombreIdioma">Nombre del Idioma: </label>
+            <input type="text" name="inputNombreIdioma" id="inputNombreIdioma" class="form-control"
+                placeholder="Escribe el nombre del idioma" value="<?= $nombreIdioma ?>">
+
+                <button type="submit" name="btnGuardarDatos" class="btn btn-dark"><i class="fa fa-floppy-o"
+                        aria-hidden="true"></i> Guardar Datos</button>
+            </div>
+
+        </form>
+
+        <div>
+            <div><?php echo $_SESSION['mensaje'] ?? ""; ?> </div>
         </div>
-    </form>
-    <br>
+
+        <form action="">
+            <div class="mt-3">
+                <label class="" for="">Filtrar Nombre del Idioma: </label>
+                
+                <input name="nombre" type="text" class="form-control" placeholder="Escribe Aqui">
+
+                <button name="buscar" class="btn btn-dark mt-3"><i class="fa fa-search"></i> Buscar</button>
+            </div>
+        </form>
+    </div>
 </div>
 
-<div>
-    <div><?php echo $_SESSION['mensaje'] ?? ""; ?> </div>
-</div>
 
 <hr>
+
 <!-- Tabla -->
 
 <div class="container">
 
-    <table class="table table-success table-striped">
+    <table class="table table-dark table-striped">
         <thead>
             <tr>
                 <th scope="col">id</th>
                 <th scope="col">idioma</th>
                 <th scope="col">fecha modificado</th>
+                <th scope="col">Acciones</th>
             </tr>
         </thead>
         <tbody>
 
             <?php
-    while($datos = mysqli_fetch_assoc($resultado)) {
+    while($datos = mysqli_fetch_assoc($idiomas)) {
     
    echo "<tr>
       <th scope='row'>{$datos['language_id']}</th>
       <td>{$datos['name']}</td>
       <td>{$datos['last_update']}</td>
+      <td>
+        <button class='btn btn-outline-danger btn-sm' title='Eliminar idioma' name='eliminar' value='{$datos['language_id']}'><i class=\"fa fa-trash\" aria-hidden=\"true\"></i></button>
+        <button class='btn btn-outline-info btn-sm' title='Editar idioma' name='editar' value='{$datos['language_id']}'><i class=\"fa fa-pencil\" aria-hidden=\"true\"></i></button>
+    </td>
     </tr>";
 }
     ?>

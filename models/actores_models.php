@@ -9,6 +9,7 @@ function obtenerActores($conexion){
     $resultado = mysqli_query($conexion, $query);
     
     return $resultado;
+
 }
 
 function obtenerActoresPorNombre($conexion, $nombre){
@@ -16,7 +17,7 @@ function obtenerActoresPorNombre($conexion, $nombre){
 
     $resultado = mysqli_query($conexion, $query);
     
-    return $resultado;
+        return $resultado;       
 }
 
 function insertarActor($conexion, $datos) {
@@ -25,5 +26,5 @@ function insertarActor($conexion, $datos) {
 
     $resultado = mysqli_query($conexion, $query);
 
-    return $resultado;
+        return $resultado;
 }

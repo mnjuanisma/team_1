@@ -6,20 +6,23 @@ require_once "models/idiomas_models.php";
 $pagina = "Idiomas";
 
 
-$resultado = obtenerIdiomas($conexion);
+$idiomas = obtenerIdiomas($conexion);
+
+$nombreIdioma = $_POST['nombreIdioma'] ?? "";
 
 
-
-if (isset($_POST['guardar'])){
-    $idioma = $_POST['idioma'] ?? "";
-
-    $datos = compact('idioma');
+if (isset($_POST['btnGuardarDatos'])){
     
+    $nombreIdioma = $_POST['inputNombreIdioma'] ?? "";
+
+    $datos = compact('nombreIdioma');
 
     $insertado = insertarIdioma($conexion, $datos);
 
     if ($insertado){
         $_SESSION['mensaje'] = 'Datos insertados correctamente';
+    } else {
+        $_SESSION['mensaje'] = 'Datos no insertados';
     }
 
     # prevenir reenvio del formulario
@@ -31,7 +34,7 @@ if (isset($_GET['buscar'])) {
     
     $nombre = $_GET['nombre'] ?? "";
 
-        $resultado= obtenerIdiomasPorNombre($conexion, $nombre);
+        $idiomas= obtenerIdiomasPorNombre($conexion, $nombre);
 }
 
 # incluir la vista

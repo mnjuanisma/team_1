@@ -2,6 +2,7 @@
 
 require_once "conexion.php";
 
+
 function obtenerCategorias($conexion){
     $query = "SELECT * FROM category";
 

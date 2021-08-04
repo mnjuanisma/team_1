@@ -6,24 +6,27 @@ require_once "models/categorias_models.php";
 $pagina = "Categorías";
 
 
-$resultado = obtenerCategorias($conexion);
+$categorias = obtenerCategorias($conexion);
+
+$nombreCategoria = $_POST['nombreCategoria'] ?? "";
 
 
-if (isset($_POST['guardar'])){
-    $categoria = $_POST['categoria'] ?? "";
-
-    $datos = compact('categoria');
+if (isset($_POST['btnGuardarDatos'])){
     
+    $nombreCategoria = $_POST['inputNombreCategoria'] ?? "";
+
+    $datos = compact('nombreCategoria');
 
     $insertado = insertarCategoria($conexion, $datos);
 
     if ($insertado){
         $_SESSION['mensaje'] = 'Datos insertados correctamente';
+    } else {
+        $_SESSION['mensaje'] = 'Datos no insertados';
     }
 
     # prevenir reenvio del formulario
 }
-
 
 # Cuando el usuario HAGA CLICK en el boton buscar
 
@@ -31,7 +34,7 @@ if (isset($_GET['buscar'])) {
     
     $nombre = $_GET['nombre'] ?? "";
 
-        $resultado= obtenerCategoriasPorNombre($conexion, $nombre);
+        $categorias= obtenerCategoriasPorNombre($conexion, $nombre);
 }
 
 

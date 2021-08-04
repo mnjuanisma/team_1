@@ -6,21 +6,22 @@ require_once "models/paises_models.php";
 $pagina = "Países";
 
 
-$resultado = obtenerPaises($conexion);
+$paises = obtenerPaises($conexion);
 
+$nombrePais = $_POST['nombrePais'] ?? "";
 
-
-if (isset($_POST['guardar'])){
-    $pais = $_POST['pais'] ?? "";
+if (isset($_POST['btnGuardarDatos'])){
     
+    $nombrePais = $_POST['inputNombrePais'] ?? "";
 
-    $datos = compact('pais');
-    
+    $datos = compact('nombrePais');
 
     $insertado = insertarPais($conexion, $datos);
 
     if ($insertado){
         $_SESSION['mensaje'] = 'Datos insertados correctamente';
+    } else {
+        $_SESSION['mensaje'] = 'Datos no insertados';
     }
 
     # prevenir reenvio del formulario
@@ -32,7 +33,7 @@ if (isset($_GET['buscar'])) {
     
     $nombre = $_GET['nombre'] ?? "";
 
-        $resultado= obtenerPaisesPorNombre($conexion, $nombre);
+        $paises= obtenerPaisesPorNombre($conexion, $nombre);
 }
 
 # incluir la vista
