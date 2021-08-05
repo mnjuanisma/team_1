@@ -22,9 +22,17 @@ function obtenerPaisesporNombre($conexion, $nombre){
 
 function insertarPais($conexion, $datos) {
     $query = "INSERT INTO country(country)
-        VALUES ('{$datos['pais']}')";
+        VALUES ('{$datos['nombrePais']}')";
 
     $resultado = mysqli_query($conexion, $query);
 
     return $resultado;
+}
+
+function eliminarPais($conexion, $id) {
+    $query = "DELETE FROM country WHERE country_id = $id";
+        
+    $resultado = mysqli_query($conexion, $query);
+
+        return $resultado;
 }

@@ -77,8 +77,8 @@
                     <td>{$actor['last_name']}</td>
                     <td>{$actor['last_update']}</td>
                     <td>
-                    <button class='btn btn-outline-danger btn-sm' title='Eliminar actor' name='eliminar' value='{$actor['actor_id']}'><i class=\"fa fa-trash\" aria-hidden=\"true\"></i></button>
-                    <button class='btn btn-outline-info btn-sm' title='Editar actor' name='editar' value='{$actor['actor_id']}'><i class=\"fa fa-pencil\" aria-hidden=\"true\"></i></button>
+                    <a href= 'actores.php?eliminar={$actor['actor_id']}'> <i> <button class='btn btn-outline-danger btn-sm' title='Eliminar actor' name='eliminar' value='{$actor['actor_id']}'><i class=\"fa fa-trash\" aria-hidden=\"true\"></i></button></i></a> 
+                    <a href= 'actores.php?editar={$actor['actor_id']}'> <i> <button class='btn btn-outline-info btn-sm' title='Editar actor' name='editar' value='{$actor['actor_id']}'><i class=\"fa fa-pencil\" aria-hidden=\"true\"></i></button></i></a> 
                     </td>
                 </tr>";
         }

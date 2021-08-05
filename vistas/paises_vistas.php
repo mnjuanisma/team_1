@@ -73,8 +73,8 @@
                 <td>{$datos['country']}</td>
                 <td>{$datos['last_update']}</td>
                 <td>
-                    <button class='btn btn-outline-danger btn-sm' title='Eliminar pais' name='eliminar' value='{$datos['country_id']}'><i class=\"fa fa-trash\" aria-hidden=\"true\"></i></button>
-                    <button class='btn btn-outline-info btn-sm' title='Editar pais' name='editar' value='{$datos['country_id']}'><i class=\"fa fa-pencil\" aria-hidden=\"true\"></i></button>
+                <a href= 'paises.php?eliminar={$datos['country_id']}'> <i> <button class='btn btn-outline-danger btn-sm' title='Eliminar pais' name='eliminar' value='{$datos['country_id']}'><i class=\"fa fa-trash\" aria-hidden=\"true\"></i></button></i></a>
+                <a href= 'paises.php?editar={$datos['country_id']}'> <i> <button class='btn btn-outline-info btn-sm' title='Editar pais' name='editar' value='{$datos['country_id']}'><i class=\"fa fa-pencil\" aria-hidden=\"true\"></i></button></i></a>
                     </td>
                 </tr>";
 }

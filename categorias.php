@@ -11,22 +11,49 @@ $categorias = obtenerCategorias($conexion);
 $nombreCategoria = $_POST['nombreCategoria'] ?? "";
 
 
-if (isset($_POST['btnGuardarDatos'])){
-    
-    $nombreCategoria = $_POST['inputNombreCategoria'] ?? "";
+try {
+    if (isset($_POST['btnGuardarDatos'])){
+        
+        $nombreCategoria = $_POST['inputNombreCategoria'] ?? "";
 
-    $datos = compact('nombreCategoria');
+        # Validar los datos
+        if (empty($nombreCategoria)){
+            throw new Exception("El nombre no puede estar vacio");
+        }
 
-    $insertado = insertarCategoria($conexion, $datos);
+        $datos = compact('nombreCategoria');
 
-    if ($insertado){
-        $_SESSION['mensaje'] = 'Datos insertados correctamente';
-    } else {
-        $_SESSION['mensaje'] = 'Datos no insertados';
+        $insertado = insertarCategoria($conexion, $datos);
+
+        if ($insertado){
+            $_SESSION['mensaje'] = 'Datos insertados correctamente';
+        } else {
+            $_SESSION['mensaje'] = 'Datos no insertados';
+        }
+
+        # prevenir reenvio del formulario
+}
+
+    # Eliminar
+    if (isset($_GET['eliminar'])){
+        $id = $_GET['eliminar'];
+
+        $eliminado = eliminarCategoria($conexion, $id);
+
+        if ($eliminado){
+            $_SESSION['mensaje']= "Eliminado correctamente";
+        } else {
+            $_SESSION['mensaje']= "No se pudo eliminar";
+        }
     }
 
-    # prevenir reenvio del formulario
+    #Editar
+    
+
+}catch(Exception $ex) {
+    $_SESSION['mensaje'] = $ex->getMessage();
 }
+
 
 # Cuando el usuario HAGA CLICK en el boton buscar
 

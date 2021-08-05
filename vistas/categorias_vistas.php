@@ -74,8 +74,8 @@
       <td>{$datos['name']}</td>
       <td>{$datos['last_update']}</td>
       <td>
-        <button class='btn btn-outline-danger btn-sm' title='Eliminar categoria' name='eliminar' value='{$datos['category_id']}'><i class=\"fa fa-trash\" aria-hidden=\"true\"></i></button>
-        <button class='btn btn-outline-info btn-sm' title='Editar categoria' name='editar' value='{$datos['category_id']}'><i class=\"fa fa-pencil\" aria-hidden=\"true\"></i></button>
+      <a href= 'categorias.php?eliminar={$datos['category_id']}'> <i> <button class='btn btn-outline-danger btn-sm' title='Eliminar categoria' name='eliminar' value='{$datos['category_id']}'><i class=\"fa fa-trash\" aria-hidden=\"true\"></i></button></i></a>
+      <a href= 'categorias.php?editar={$datos['category_id']}'> <i> <button class='btn btn-outline-info btn-sm' title='Editar categoria' name='editar' value='{$datos['category_id']}'><i class=\"fa fa-pencil\" aria-hidden=\"true\"></i></button></i></a>
     </td>
     </tr>";
 }

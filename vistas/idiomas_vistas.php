@@ -72,8 +72,8 @@
       <td>{$datos['name']}</td>
       <td>{$datos['last_update']}</td>
       <td>
-        <button class='btn btn-outline-danger btn-sm' title='Eliminar idioma' name='eliminar' value='{$datos['language_id']}'><i class=\"fa fa-trash\" aria-hidden=\"true\"></i></button>
-        <button class='btn btn-outline-info btn-sm' title='Editar idioma' name='editar' value='{$datos['language_id']}'><i class=\"fa fa-pencil\" aria-hidden=\"true\"></i></button>
+      <a href= 'idiomas.php?eliminar={$datos['language_id']}'> <i> <button class='btn btn-outline-danger btn-sm' title='Eliminar idioma' name='eliminar' value='{$datos['language_id']}'><i class=\"fa fa-trash\" aria-hidden=\"true\"></i></button></i></a>
+      <a href= 'idiomas.php?editar={$datos['language_id']}'> <i> <button class='btn btn-outline-info btn-sm' title='Editar idioma' name='editar' value='{$datos['language_id']}'><i class=\"fa fa-pencil\" aria-hidden=\"true\"></i></button></i></a>
     </td>
     </tr>";
 }

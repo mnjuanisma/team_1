@@ -22,9 +22,17 @@ function obtenerIdiomasPorNombre($conexion, $nombre){
 
 function insertarIdioma($conexion, $datos) {
     $query = "INSERT INTO language(name)
-        VALUES ('{$datos['idioma']}')";
+        VALUES ('{$datos['nombreIdioma']}')";
 
     $resultado = mysqli_query($conexion, $query);
 
     return $resultado;
+}
+
+function eliminarIdioma($conexion, $id) {
+    $query = "DELETE FROM language WHERE language_id = $id";
+        
+    $resultado = mysqli_query($conexion, $query);
+
+        return $resultado;
 }

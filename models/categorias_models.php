@@ -22,9 +22,17 @@ function obtenerCategoriasPorNombre($conexion, $nombre){
 
 function insertarCategoria($conexion, $datos) {
     $query = "INSERT INTO category(name)
-        VALUES ('{$datos['categoria']}')";
+        VALUES ('{$datos['nombreCategoria']}')";
 
     $resultado = mysqli_query($conexion, $query);
 
     return $resultado;
+}
+
+function eliminarCategoria($conexion, $id) {
+    $query = "DELETE FROM category WHERE category_id = $id";
+        
+    $resultado = mysqli_query($conexion, $query);
+
+        return $resultado;
 }

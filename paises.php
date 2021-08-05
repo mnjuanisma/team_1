@@ -10,21 +10,48 @@ $paises = obtenerPaises($conexion);
 
 $nombrePais = $_POST['nombrePais'] ?? "";
 
-if (isset($_POST['btnGuardarDatos'])){
-    
-    $nombrePais = $_POST['inputNombrePais'] ?? "";
 
-    $datos = compact('nombrePais');
+try {
+    if (isset($_POST['btnGuardarDatos'])){
+        
+        $nombrePais = $_POST['inputNombrePais'] ?? "";
 
-    $insertado = insertarPais($conexion, $datos);
+        # Validar los datos
+        if (empty($nombrePais)){
+            throw new Exception("El nombre no puede estar vacio");
+        }
 
-    if ($insertado){
-        $_SESSION['mensaje'] = 'Datos insertados correctamente';
-    } else {
-        $_SESSION['mensaje'] = 'Datos no insertados';
+        $datos = compact('nombrePais');
+
+        $insertado = insertarPais($conexion, $datos);
+
+        if ($insertado){
+            $_SESSION['mensaje'] = 'Datos insertados correctamente';
+        } else {
+            $_SESSION['mensaje'] = 'Datos no insertados';
+        }
+
+        # prevenir reenvio del formulario
+}
+
+    # Eliminar
+    if (isset($_GET['eliminar'])){
+        $id = $_GET['eliminar'];
+
+        $eliminado = eliminarPais($conexion, $id);
+
+        if ($eliminado){
+            $_SESSION['mensaje']= "Eliminado correctamente";
+        } else {
+            $_SESSION['mensaje']= "No se pudo eliminar";
+        }
     }
 
-    # prevenir reenvio del formulario
+    #Editar
+    
+
+}catch(Exception $ex) {
+    $_SESSION['mensaje'] = $ex->getMessage();
 }
 
 # Cuando el usuario HAGA CLICK en el boton buscar
