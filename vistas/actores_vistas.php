@@ -17,15 +17,15 @@
     <div class="group-form">
         <form action="" method="post">
 
-            <input type="hidden" name="idActor" value="<?= $idActor ?>">
+            <input type="hidden" name="id" value="<?php echo $info['actor_id'] ?? '';?>">
 
             <label for="inputNombreActor">Nombre del Actor: </label>
             <input type="text" name="inputNombreActor" id="inputNombreActor" class="form-control"
-                placeholder="Escribe el nombre del actor" value="<?= $nombreActor ?>">
+                placeholder="Escribe el nombre del actor" value="<?php echo $info['first_name'] ?? '';?>">
 
             <label class="mt-3" for="inputApellidoActor">Apellido del Actor: </label>
             <input type="text" name="inputApellidoActor" id="inputApellidoActor" class="form-control"
-                placeholder="Escribe el apellido del actor" value="<?= $apellidoActor ?>">
+                placeholder="Escribe el apellido del actor" value="<?php echo $info['last_name'] ?? '';?>">
             <div class="mt-3">
                 <button type="submit" name="btnGuardarDatos" class="btn btn-dark"><i class="fa fa-floppy-o"
                         aria-hidden="true"></i> Guardar Datos</button>

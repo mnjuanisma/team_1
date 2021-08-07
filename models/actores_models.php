@@ -20,6 +20,14 @@ function obtenerActoresPorNombre($conexion, $nombre){
         return $resultado;       
 }
 
+function obtenerActoresPorId($conexion, $id){
+    $query = "SELECT * FROM actor WHERE actor_id = $id";
+
+    $resultado = mysqli_query($conexion, $query);
+    
+        return $resultado;       
+}
+
 function insertarActor($conexion, $datos) {
     $query = "INSERT INTO actor(first_name, last_name)
         VALUES ('{$datos['nombreActor']}', '{$datos['apellidoActor']}')";
@@ -39,4 +47,14 @@ function eliminarActor($conexion, $id) {
     $resultado = mysqli_query($conexion, $query);
 
         return $resultado;
+}
+
+function actualizarActor($conexion, $datos){
+    $query= "UPDATE actor SET first_name = '{$datos['nombreActor']}',
+     last_name = '{$datos['apellidoActor']}' 
+     WHERE actor_id = '{$datos['id']}'";
+
+     $resultado = mysqli_query($conexion, $query);
+
+     return $resultado;
 }

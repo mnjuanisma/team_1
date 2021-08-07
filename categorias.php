@@ -9,29 +9,45 @@ $pagina = "Categorías";
 $categorias = obtenerCategorias($conexion);
 
 $nombreCategoria = $_POST['nombreCategoria'] ?? "";
-
+$id = $_POST['id'] ?? "";
 
 try {
     if (isset($_POST['btnGuardarDatos'])){
         
         $nombreCategoria = $_POST['inputNombreCategoria'] ?? "";
+        $id = $_POST['id'] ?? "";
 
         # Validar los datos
         if (empty($nombreCategoria)){
             throw new Exception("El nombre no puede estar vacio");
         }
-
+        
         $datos = compact('nombreCategoria');
 
-        $insertado = insertarCategoria($conexion, $datos);
+        # Si el id está vacío, se va a insertar
+        if (empty($id)){
+            $insertado = insertarCategoria($conexion, $datos);
+    
+            if ($insertado){
+                $_SESSION['mensaje'] = 'Datos insertados correctamente';
+            } else {
+                $_SESSION['mensaje'] = 'Datos no insertados';
+            }
 
-        if ($insertado){
-            $_SESSION['mensaje'] = 'Datos insertados correctamente';
         } else {
-            $_SESSION['mensaje'] = 'Datos no insertados';
+            # De lo contrario, se va actualizar 
+            $datos['id'] = $id;
+
+            $actualizado = actualizarCategoria($conexion, $datos);
+
+            if ($actualizado){
+                $_SESSION['mensaje']= 'Datos actualizados correctamente';
+            }
         }
 
         # prevenir reenvio del formulario
+        refrezcar("categorias.php");
+
 }
 
     # Eliminar
@@ -45,10 +61,19 @@ try {
         } else {
             $_SESSION['mensaje']= "No se pudo eliminar";
         }
+        refrezcar("categorias.php");
     }
 
     #Editar
-    
+    if (isset($_GET['editar'])){
+
+        $id = $_GET['editar'];
+
+        #conseguir la informacion de la base de datos
+        $result = obtenerCategoriasPorId($conexion, $id);
+
+        $info = mysqli_fetch_assoc($result);
+    }
 
 }catch(Exception $ex) {
     $_SESSION['mensaje'] = $ex->getMessage();

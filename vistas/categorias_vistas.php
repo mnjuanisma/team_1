@@ -18,11 +18,11 @@
     <div class="group-form">
         <form action="" method="post">
 
-            <input type="hidden" name="idCategoria" value="<?= $idCategoria ?>">
+            <input type="hidden" name="id" value="<?php echo $info['category_id'] ?? '';?>">
 
             <label for="inputNombreCategoria">Nombre de la Categoria: </label>
             <input type="text" name="inputNombreCategoria" id="inputNombreCategoria" class="form-control"
-                placeholder="Escribe el nombre de la categoria" value="<?= $nombreCategoria ?>">
+                placeholder="Escribe el nombre de la categoria" value="<?php echo $info['name'] ?? '';?>">
 
                 <button type="submit" name="btnGuardarDatos" class="btn btn-dark"><i class="fa fa-floppy-o"
                         aria-hidden="true"></i> Guardar Datos</button>

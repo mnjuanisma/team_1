@@ -20,6 +20,14 @@ function obtenerIdiomasPorNombre($conexion, $nombre){
     return $resultado;
 }
 
+function obtenerIdiomasPorId($conexion, $id){
+    $query = "SELECT * FROM language WHERE language_id = $id";
+
+    $resultado = mysqli_query($conexion, $query);
+    
+        return $resultado;       
+}
+
 function insertarIdioma($conexion, $datos) {
     $query = "INSERT INTO language(name)
         VALUES ('{$datos['nombreIdioma']}')";
@@ -35,4 +43,12 @@ function eliminarIdioma($conexion, $id) {
     $resultado = mysqli_query($conexion, $query);
 
         return $resultado;
+}
+
+function actualizarIdioma($conexion, $datos){
+    $query= "UPDATE language SET name = '{$datos['nombreIdioma']}' WHERE language_id = '{$datos['id']}'";
+
+    $resultado = mysqli_query($conexion, $query);
+
+     return $resultado;
 }

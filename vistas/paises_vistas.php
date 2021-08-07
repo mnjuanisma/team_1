@@ -18,11 +18,11 @@
     <div class="group-form">
         <form action="" method="post">
 
-            <input type="hidden" name="idPais" value="<?= $idPais ?>">
+            <input type="hidden" name="id" value="<?php echo $info['country_id'] ?? '';?>">
 
             <label for="inputNombrePais">Nombre del Pais: </label>
             <input type="text" name="inputNombrePais" id="inputNombrePais" class="form-control"
-                placeholder="Escribe el nombre del pais" value="<?= $nombrePais ?>">
+                placeholder="Escribe el nombre del pais" value="<?php echo $info['country'] ?? '';?>">
 
                 <button type="submit" name="btnGuardarDatos" class="btn btn-dark"><i class="fa fa-floppy-o"
                         aria-hidden="true"></i> Guardar Datos</button>

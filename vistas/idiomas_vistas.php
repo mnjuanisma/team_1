@@ -18,11 +18,11 @@
     <div class="group-form">
         <form action="" method="post">
 
-            <input type="hidden" name="idIdioma" value="<?= $idIdioma ?>">
+            <input type="hidden" name="id" value="<?php echo $info['language_id'] ?? '';?>">
 
             <label for="inputNombreIdioma">Nombre del Idioma: </label>
             <input type="text" name="inputNombreIdioma" id="inputNombreIdioma" class="form-control"
-                placeholder="Escribe el nombre del idioma" value="<?= $nombreIdioma ?>">
+                placeholder="Escribe el nombre del idioma" value="<?php echo $info['name'] ?? '';?>">
 
                 <button type="submit" name="btnGuardarDatos" class="btn btn-dark"><i class="fa fa-floppy-o"
                         aria-hidden="true"></i> Guardar Datos</button>

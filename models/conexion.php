@@ -12,4 +12,6 @@ if (!$conexion){
     echo "<br>Hubo un error al conectarnos";
 }
 
-$url = "http://".$_SERVER['HTTP_HOST']."/team_1";
+function refrezcar($nombrePagina){
+    header("Location: $nombrePagina", true, 303);
+}

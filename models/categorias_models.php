@@ -20,6 +20,14 @@ function obtenerCategoriasPorNombre($conexion, $nombre){
     return $resultado;
 }
 
+function obtenerCategoriasPorId($conexion, $id){
+    $query = "SELECT * FROM category WHERE category_id = $id";
+
+    $resultado = mysqli_query($conexion, $query);
+    
+        return $resultado;       
+}
+
 function insertarCategoria($conexion, $datos) {
     $query = "INSERT INTO category(name)
         VALUES ('{$datos['nombreCategoria']}')";
@@ -30,9 +38,21 @@ function insertarCategoria($conexion, $datos) {
 }
 
 function eliminarCategoria($conexion, $id) {
+    $query = "DELETE FROM film_category WHERE category_id = $id";
+        
+    $resultado = mysqli_query($conexion, $query);
+    
     $query = "DELETE FROM category WHERE category_id = $id";
         
     $resultado = mysqli_query($conexion, $query);
 
         return $resultado;
+}
+
+function actualizarCategoria($conexion, $datos){
+    $query= "UPDATE category SET name = '{$datos['nombreCategoria']}' WHERE category_id = '{$datos['id']}'";
+
+    $resultado = mysqli_query($conexion, $query);
+
+     return $resultado;
 }
