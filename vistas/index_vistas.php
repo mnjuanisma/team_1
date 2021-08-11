@@ -1,4 +1,3 @@
-
 <style> @import url(https://fonts.googleapis.com/css?family=Work+Sans:400,300,700|Open+Sans:400italic,300italic);
 body {
   background-color: #fff
@@ -12,20 +11,6 @@ body {
   background-size: 95%;
   background-repeat: no-repeat;
   background-position: center center;
-}
-
-div.bg-light {
-    width: 100%;
-  position: relative;
-  background-image: url(https://images.unsplash.com/photo-1628087237369-e85896a29905?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&w=1920&q=80);
-  background-size: 100%;
-  background-repeat: no-repeat;
-  background-position: center center;
-}
-
-.display-1.py-5 {
-    color: rgba(255, 255, 255, .7);
-    text-align: center;
 }
 
 
@@ -106,7 +91,7 @@ nav li a:before {
 
 nav li a:after {
   content: attr(data-content);
-  font-size: 0.7rem;
+  font-size: 1rem;
   transition: all .2s linear;
   opacity: 0;
   position: absolute;
@@ -138,7 +123,7 @@ nav li a:hover:after {
 nav li:nth-of-type(1){background-color: #29363B}
 nav li:nth-of-type(2){background-color: #EA495F}
 nav li:nth-of-type(3){background-color: #F4837D}
-nav li:nth-of-type(4){background-color: #FDCEA9}
+nav li:nth-of-type(4){background-color: #ffae6f}
 nav li:nth-of-type(5){background-color: #99B998}
 
 .slide-in-nav-item {
@@ -362,7 +347,7 @@ Animation keyframes
   font-family: "Work Sans", sans-serif;
   color: #fff;
   font-weight: 300;
-  font-size: 25px;
+  font-size: 12px;
   text-transform: uppercase;
   text-decoration: none;
   position: absolute;
@@ -400,7 +385,7 @@ Animation keyframes
   </nav>
 </div>
 
-<section>
+<section class="home">
   <div class="open-overlay">
     <span class="bar-top"></span>
     <span class="bar-middle"></span>

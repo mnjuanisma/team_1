@@ -26,6 +26,7 @@
             <label class="mt-3" for="inputApellidoActor">Apellido del Actor: </label>
             <input type="text" name="inputApellidoActor" id="inputApellidoActor" class="form-control"
                 placeholder="Escribe el apellido del actor" value="<?php echo $info['last_name'] ?? '';?>">
+            
             <div class="mt-3">
                 <button type="submit" name="btnGuardarDatos" class="btn btn-dark"><i class="fa fa-floppy-o"
                         aria-hidden="true"></i> Guardar Datos</button>
